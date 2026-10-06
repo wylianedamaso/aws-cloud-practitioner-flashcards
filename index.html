@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Practitioner - Baralho Mestre</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>🟪 AWS Flashcards</h1>
+            <p class="subtitle">Cloud Practitioner (CLF-C02)</p>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <span id="counter" aria-live="polite">Carregando...</span>
+                </div>
+                <div class="stat-box diff-box">
+                    <span>Difíceis: <span id="diff-count">0</span></span>
+                </div>
+            </div>
+
+            <!-- Filtros de Navegação -->
+            <div class="filter-container">
+                <button id="filter-all" class="filter-btn active">📚 Todos os Cards</button>
+                <button id="filter-essential" class="filter-btn">⭐ Essenciais</button>
+            </div>
+
+            <div class="category-badge" id="category-display">Categoria</div>
+        </header>
+
+        <main>
+            <!-- Container interativo para navegação por teclado -->
+            <div class="flashcard-container" id="card-container" tabindex="0" aria-label="Flashcard interativo. Pressione espaço para virar.">
+                <div class="flashcard" id="flashcard">
+                    <div class="card-face front">
+                        <div class="card-content" id="card-front">Carregando pergunta...</div>
+                        <div class="hint">Clique ou aperte Espaço para virar</div>
+                    </div>
+                    <div class="card-face back">
+                        <div class="card-content" id="card-back">Carregando resposta...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="prev-btn" class="btn" aria-label="Card anterior">
+                    <span class="icon">⬅️</span> Anterior
+                </button>
+                <button id="diff-btn" class="btn btn-outline" aria-label="Marcar como difícil">
+                    <span class="icon">☆</span> Marcar Difícil
+                </button>
+                <button id="shuffle-btn" class="btn btn-outline" aria-label="Embaralhar cards">
+                    <span class="icon">🔀</span> Embaralhar
+                </button>
+                <button id="next-btn" class="btn btn-primary" aria-label="Próximo card">
+                    Próximo <span class="icon">➡️</span>
+                </button>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Navegue com <span>←</span> <span>→</span> e vire com <span>Espaço</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
