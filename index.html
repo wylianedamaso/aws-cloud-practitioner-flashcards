@@ -21,8 +21,8 @@
                 <button class="nav-btn" data-target="view-flashcards">
                     🎴 Flashcards
                 </button>
-                <button class="nav-btn disabled" title="Em breve">
-                    📝 Conteúdos (Em breve)
+                <button class="nav-btn" data-target="view-content">
+                    📝 Conteúdos
                 </button>
                 <button class="nav-btn disabled" title="Em breve">
                     🚀 Simulados (Em breve)
@@ -119,8 +119,31 @@
                 </div>
             </section>
 
+            <!-- TELA 3: ÁREA DE CONTEÚDOS -->
+            <section id="view-content" class="view hidden">
+                <div class="content-layout">
+                    <!-- Menu lateral de Tópicos -->
+                    <aside class="topics-sidebar" id="topics-list">
+                        <!-- Botões gerados via JS -->
+                    </aside>
+
+                    <!-- Área de Leitura -->
+                    <article class="reading-area">
+                        <div id="reading-content">
+                            <h2 style="color: var(--white);">Selecione um tópico ao lado para começar os estudos. 📚</h2>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
         </main>
     </div>
+    
+    <!-- Scripts -->
+    <script src="contentData.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
 
     <!-- Importante: O data.js carrega primeiro para o script.js poder acessá-lo -->
     <script src="data.js"></script>

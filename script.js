@@ -28,12 +28,15 @@ const elements = {
     counter: document.getElementById('counter'),
     diffCount: document.getElementById('diff-count'),
     categoryDisplay: document.getElementById('category-display'),
-    
+    // Conteúdos
+    topicsList: document.getElementById('topics-list'),
+    readingContent: document.getElementById('reading-content'),
     btnPrev: document.getElementById('prev-btn'),
     btnNext: document.getElementById('next-btn'),
     btnShuffle: document.getElementById('shuffle-btn'),
     btnDiff: document.getElementById('diff-btn'),
     btnFilterEssential: document.getElementById('filter-essential-btn')
+
 };
 
 // ================= NAVEGAÇÃO SPA (Single Page Application) =================
@@ -172,10 +175,36 @@ function toggleEssentialFilter() {
     updateDashboard();
 }
 
+// ================= CONTEÚDOS LÓGICA =================
+function renderTopicsMenu() {
+    elements.topicsList.innerHTML = ''; // Limpa o menu
+    
+    studyContent.forEach((topic, index) => {
+        const btn = document.createElement('button');
+        btn.classList.add('topic-btn');
+        btn.textContent = topic.title;
+        
+        btn.addEventListener('click', () => {
+            // Remove active de todos e bota neste
+            document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Renderiza o HTML do conteúdo selecionado
+            elements.readingContent.innerHTML = topic.html;
+            
+            // Joga o scroll para o topo da área de leitura
+            elements.readingContent.parentElement.scrollTop = 0;
+        });
+        
+        elements.topicsList.appendChild(btn);
+    });
+}
+
 // ================= INICIALIZAÇÃO E LISTENERS =================
 function init() {
     updateDashboard();
     updateUI();
+    renderTopicsMenu();
     setupEventListeners();
 }
 
